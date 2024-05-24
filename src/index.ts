@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response, application } from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
-import photoController from './photoEdit/controller';
+import photoEditController from './photoEdit/controller';
 import handleError from './utils/middleware/globalErrorHandler';
 import compression from 'compression';
 
@@ -18,10 +18,12 @@ app.use(compression());
 
 //HomeURL
 app.get('/', (request: Request, response: Response, next: NextFunction) => {
-    response.json({ message: 'Hello there !' });
+    response.json({ message: 'Server is up !' });
 });
 
-app.use('/api/image', photoController);
+app.use('/api/image', photoEditController);
 
 //Error Handler Middleware
 app.use(handleError);
+
+export default app;
