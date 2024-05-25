@@ -2,16 +2,16 @@
   "name": "nodets",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "build": "tsc --build",
     "start": "node dist/index.js",
     "start:dev": "nodemon ./src/index.ts",
     "test": "jest",
-    "coverage":"jest --coverage"
+    "coverage": "jest --coverage"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kritebh Lagan Bibhakar",
   "license": "ISC",
   "devDependencies": {
     "@types/compression": "^1.7.5",
@@ -26,8 +26,12 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "@types/multer": "^1.4.11",
     "compression": "^1.7.4",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "joi": "^17.13.1",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.33.4"
   }
 }
