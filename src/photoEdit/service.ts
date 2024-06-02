@@ -2,10 +2,6 @@ import sharp from "sharp";
 import { ConvertedImage, ImageFormat } from "./interfaces";
 import { replaceFileExtension } from "./helper";
 
-function getAllImages(): string {
-    return "All images";
-}
-
 async function convertImage(files: Express.Multer.File[], format: ImageFormat) {
     const convertedImage: ConvertedImage[] = [];
     for (const file of files) {
@@ -18,4 +14,4 @@ async function convertImage(files: Express.Multer.File[], format: ImageFormat) {
     return convertedImage;
 }
 
-export { getAllImages, convertImage };
+export { convertImage };

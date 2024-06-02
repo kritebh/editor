@@ -1,5 +1,5 @@
 import { Router, Request, Response, NextFunction } from "express";
-import { convertImage, getAllImages } from "./service";
+import { convertImage } from "./service";
 import fileUpload from "../utils/middleware/fileUpload";
 import { PhotoConvertRequestBody } from "./interfaces";
 import payloadValidate from "../utils/middleware/payloadValidate";
@@ -7,11 +7,6 @@ import photoConvertSchema from "./payloadValidationSchema/photoConvert";
 import { MAX_FILE_COUNT } from "../utils/constants";
 
 const photoEditController = Router();
-
-photoEditController.get("/", (request: Request, response: Response, next: NextFunction) => {
-    let allImages = getAllImages();
-    response.send(allImages);
-});
 
 photoEditController.post(
     "/convert",
@@ -25,12 +20,12 @@ photoEditController.post(
             let result = await convertImage(files, format);
 
             response.json({
-                message: "Files uploaded successfully",
+                message: "Files converted successfully",
                 result,
             });
         } catch (error) {
             console.log(error);
-            response.status(500).json({ error: "Error in converting images" });
+            response.status(500).json({ error: "Error in converting files" });
         }
     },
 );

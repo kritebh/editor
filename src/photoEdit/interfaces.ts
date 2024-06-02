@@ -16,8 +16,6 @@ export type ImageFormat =
     | "jp2"
     | "jxl"
     | "png"
-    | "raw"
-    | "svg"
     | "tiff"
     | "tif"
     | "webp";
